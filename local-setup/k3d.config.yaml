@@ -1,9 +1,10 @@
 apiVersion: k3d.io/v1alpha4
 kind: Simple
 metadata:
-  name: k3d-fluxcd
+  name: local-k3s
 servers: 1 # How many Kubernetes control plane nodes to run
 agents: 2  # How many Kubernetes worker nodes to run
+image: rancher/k3s:v1.26.1-k3s1
 ports:
   - port: 8081:80
     nodeFilters:
