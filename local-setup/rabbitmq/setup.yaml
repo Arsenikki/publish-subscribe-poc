@@ -7,7 +7,7 @@ spec:
   rabbitmq:
     additionalConfig: |
       default_user=rabbit
-      default_pass=verysecretsecret
+      default_pass=verysecretpassword
   service:
     type: ClusterIP
   persistence:

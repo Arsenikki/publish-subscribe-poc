@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: subi
-        image: pubisubi_subi:latest
+        image: pubisubi-subi:latest
         imagePullPolicy: Never
         env:
           - name: ASPNETCORE_ENVIRONMENT
@@ -21,9 +21,9 @@ spec:
           - name: MassTransit__Host
             value: rabbitmq
           - name: MassTransit__Username
-            value: pupu
+            value: rabbit
           - name: MassTransit__Password
-            value: verysecretsecret
+            value: verysecretpassword
         resources:
           limits:
             memory: "128Mi"
