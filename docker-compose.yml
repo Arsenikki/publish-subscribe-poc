@@ -1,0 +1,25 @@
+version: "3.6"
+
+services:
+  rabbitmq:
+    image: masstransit/rabbitmq:latest
+    ports:
+     - "5672:5672"
+     - "15672:15672"
+     - "15692:15692"
+  pubi:
+    build:
+      context: .
+      dockerfile: ./Pubi/Dockerfile
+    ports: 
+      - "8000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+  subi:
+    build:
+      context: .
+      dockerfile: ./Subi/Dockerfile
+    deploy:
+      replicas: 1
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development

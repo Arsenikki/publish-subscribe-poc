@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: subi
+spec:
+  selector:
+    app: subi
+  ports:
+  - port: 80
+    targetPort: 80

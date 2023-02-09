@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pubi
+spec:
+  selector:
+    matchLabels:
+      app: pubi
+  template:
+    metadata:
+      labels:
+        app: pubi
+    spec:
+      containers:
+      - name: pubi
+        image: pubisubi_pubi:latest
+        imagePullPolicy: Never
+        env:
+          - name: ASPNETCORE_ENVIRONMENT
+            value: Development
+          - name: MassTransit__Host
+            value: rabbitmq
+          - name: MassTransit__Username
+            value: pupu
+          - name: MassTransit__Password
+            value: verysecretsecret
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
