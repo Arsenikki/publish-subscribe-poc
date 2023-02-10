@@ -18,7 +18,7 @@ Some notable tools utilized in this PoC:
 1. Create the cluster:
     ```
     k3d registry create registry.local --port 0.0.0.0:5000
-    k3d cluster create -c  local-k3d-setup/k3d.config.yaml --registry-use k3d-registry.local:5000
+    k3d cluster create -c local-setup/k3d.config.yaml --registry-use k3d-registry.local:5000
     ```
 
 2. Build the `pubi` and `subi` services:
@@ -43,7 +43,7 @@ Some notable tools utilized in this PoC:
     ```
 6. Deploy KEDA autoscaler (run 2x as CRDs are pre-requisite for install):
     ```
-    kubectl apply -k .\local-setup\keda\
+    kubectl apply -k ./local-setup/keda/
     ```
 
 ## API Load Testing
@@ -54,14 +54,15 @@ docker run -it -v ${PWD}/k6/scripts:/scripts grafana/k6:latest run -u 100 -d 5s 
 
 ## TODO
 
-1. Draw a diagram of the setup
-2. Create a CI for Pubi and Subi services
+1. Run the setup to verify that it still works
+2. Draw a diagram of the setup
+3. Create a CI for Pubi and Subi services
     - Build the containers
-    - Scan the containers for vulnerabilities using Trivy
-3. Use GitOps for deployment
+    - Scan the containers for vulnerabilities using Trivy (Optional)
+4. Use GitOps for deployment
     - Install FluxCD
     - Add Flux Kustomizations and regular Kustomizations
     - Build OCI artifact from manifests
-4. Improve k6 load tests
+5. Improve k6 load tests
     - Verify the request responses
     - Run as a Kubernetes job
