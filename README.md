@@ -11,6 +11,8 @@ Some notable tools utilized in this PoC:
 - KEDA - Kubernetes autoscaler
 - k6 - Load testing tooling used to stress test the system
 
+![Image](overview.drawio.png "Overview")
+
 ## Installation
 
 1. Create the cluster:
